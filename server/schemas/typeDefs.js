@@ -5,12 +5,12 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        bookCount: Int
-        savedBooks: [Book]
+        password: String
+        savedVehicles: [vehicle]
     }
     type vehicle {
         _id: ID
-        name: String
+        username: String
         make: String
         model: String
         year: Int
@@ -25,7 +25,7 @@ const typeDefs = gql`
         me: User
     }
     input favoriteVehicle {
-        name: String
+        username: String
         make: String
         model: String
         year: Int

@@ -1,1 +1,7 @@
-//no idea what should go here. But added it in just in case.
+const mongoose = require('mongoose');
+
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/vehicleEcommerce-db'
+);
+
+module.exports = mongoose.connection;
