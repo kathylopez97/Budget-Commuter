@@ -6,7 +6,6 @@ const authMiddleware = require("./utils/auth");
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-const { start } = require('repl');
 
 const PORT = 3001;
 const app = express();
