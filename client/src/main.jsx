@@ -2,11 +2,15 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+//
+//uncomment the areas when those pages are ready
+//
+
 import App from './App.jsx'
-import FavoriteVehicles from './pages/FavoritedVehicles'
-import GetSingleVehicle from './pages/GetSingleVehicle'
+// import FavoriteVehicles from './pages/FavoritedVehicles'
+// import GetSingleVehicle from './pages/GetSingleVehicle'
 import Home from './pages/Home'
-import Search from './pages/Search'
+// import Search from './pages/Search'
 
 const router = createBrowserRouter([
     {
@@ -17,16 +21,19 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home/>
-            }, {
-                path: '/search',
-                element: <Search/>
-            }, {
-                path: '/favorites',
-                element: <FavoriteVehicles/>
-            }, {
-                path: '/vehicle/:id',
-                element: <GetSingleVehicle/>
-            }
+            },
+            //  {
+            //     path: '/search',
+            //     element: <Search/>
+            // }, 
+            
+            // {
+            //     path: '/favorites',
+            //     element: <FavoriteVehicles/>
+            // }, {
+            //     path: '/vehicle/:id',
+            //     element: <GetSingleVehicle/>
+            // }
         ]
     }
 ])

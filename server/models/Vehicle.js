@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const vehicleSchema = new schema({
+const vehicleSchema = new Schema({
     _id: Schema.Types.ObjectId,
     make: String,
     model: String,

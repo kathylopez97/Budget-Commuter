@@ -9,13 +9,14 @@ const typeDefs = gql`
         savedVehicles: [vehicle]
     }
     type vehicle {
-        _id: ID
+        vehicleID: ID
         username: String
         make: String
         model: String
         year: Int
         color: String
         miles: Int
+        price: Int
     }
     type Auth {
         token: ID!
@@ -24,18 +25,20 @@ const typeDefs = gql`
     type Query {
         me: User
     }
-    input favoriteVehicle {
+    input FavoriteVehicle {
+        vehicleID: ID
         username: String
         make: String
         model: String
         year: Int
         color: String
         miles: Int
+        price: Int
     }
     type Mutation {
         loginUser(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        saveVehicle(vehicleData: favoriteVehicle!): User
+        saveVehicle(vehicleData: FavoriteVehicle!): User
         removeVehicle(vehicleId: ID!): User
     }
 `;
