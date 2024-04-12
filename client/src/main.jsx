@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx'
 // import FavoriteVehicles from './pages/FavoritedVehicles'
 // import GetSingleVehicle from './pages/GetSingleVehicle'
-import Home from './pages/Home'
+import Homepage from './components/HomePage/index.jsx'
 // import Search from './pages/Search'
 
 const router = createBrowserRouter([
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home/>
+                element: <Homepage/>
             },
             //  {
             //     path: '/search',
