@@ -9,6 +9,7 @@ import { setContext } from '@apollo/client/link/context'
 
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
+import { Outlet } from 'react-router-dom';
 
 
 
@@ -39,9 +40,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
 
-      <Navbar />
-      <HomePage />
-
+      <Navbar/>
+      <Outlet/>
       <h1>Hello</h1>
 
     </ApolloProvider>

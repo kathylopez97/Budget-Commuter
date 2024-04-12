@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import { Outlet } from 'react-router-dom'
 //
 //uncomment the areas when those pages are ready
 //
