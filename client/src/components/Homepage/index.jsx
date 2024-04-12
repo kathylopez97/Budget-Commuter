@@ -10,7 +10,7 @@ export function HomePage() {
     return (
       <div style={styles.homePageStyle} className="homePage">
         <img src="" alt=""></img> 
-        <p> Hello world</p>
+        <p> Hello world </p>
        
       </div>
     );
