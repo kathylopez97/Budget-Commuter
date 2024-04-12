@@ -14,18 +14,18 @@ import App from './App.jsx'
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App/>,
+        element: <App />,
         errorElement: <h1 className='display-2'>Wrong Page!</h1>,
         children: [
             {
                 index: true,
-                element: <Outlet/>
+                element: <Outlet />
             },
             //  {
             //     path: '/search',
             //     element: <Search/>
             // }, 
-            
+
             // {
             //     path: '/favorites',
             //     element: <FavoriteVehicles/>
@@ -39,4 +39,4 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
-  )
+)
