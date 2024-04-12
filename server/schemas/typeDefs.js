@@ -35,11 +35,22 @@ const typeDefs = gql`
         miles: Int
         price: Int
     }
+    input PostVehicle {
+        vehicleID: ID
+        username: String
+        make: String
+        model: String
+        year: Int
+        color: String
+        miles: Int
+        price: Int
+    }
     type Mutation {
         loginUser(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         saveVehicle(vehicleData: FavoriteVehicle!): User
         removeVehicle(vehicleId: ID!): User
+        postVehicle(vehiclePostData: PostVehicle!): vehicle
     }
 `;
 
