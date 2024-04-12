@@ -35,11 +35,20 @@ const resolvers = {
             if (!context.user) {
                 throw new AuthenticationError('You need to be logged in!');
             }
+
+            const { vehicleID } = vehicleData;
+
+            const user = await User.findOne({ _id: context.user._id });
+            if (user.savedVehicles.some(vehicle => vehicle.vehicleID === vehicleID)) {
+                throw new Error('Vehicle is already saved');
+            }
+
             const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
                 { $addToSet: { savedVehicles: vehicleData } },
                 { new: true, runValidators: true }
             );
+
             return updatedUser;
         },
         removeVehicle: async (parent, { vehicleId }, context) => {

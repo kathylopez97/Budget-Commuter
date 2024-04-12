@@ -8,9 +8,9 @@ import {
 import { setContext } from '@apollo/client/link/context'
 
 import Navbar from './components/Navbar';
-import HomePage from './components/HomePage';
 import { Outlet } from 'react-router-dom';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
@@ -41,9 +41,10 @@ function App() {
     <ApolloProvider client={client}>
 
       <Navbar/>
+      <Header/>
+      <HomePage/>
       <Outlet/>
-      <h1>Hello</h1>
-
+      <Footer/>
     </ApolloProvider>
   );
 }
