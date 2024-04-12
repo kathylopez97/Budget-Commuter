@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import HomePage from './components/Homepage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
