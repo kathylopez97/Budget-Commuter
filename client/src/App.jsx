@@ -6,8 +6,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
+
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
+
 
 
 const httpLink = createHttpLink({
@@ -36,8 +38,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+
       <Navbar />
       <HomePage />
+
+      <h1>Hello</h1>
+
     </ApolloProvider>
   );
 }
