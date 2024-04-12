@@ -1,18 +1,39 @@
-const { Schema, model } = require('mongoose');
+const {Schema} = require('mongoose');
 
 const vehicleSchema = new Schema({
-    _id: Schema.Types.ObjectId,
-    make: String,
-    model: String,
-    year: Number,
-    price: Number,
-    seller: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
+    vehicleID: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    make: {
+        type: String,
+        required: true
+    },
+    model: {
+        type: String,
+        required: true
+    },
+    year: {
+        type: Number,
+        required: true
+    },
+    color: {
+        type: String,
+        required: true
+    },
+    miles: {
+        type: Number,
+        required: true
+    },
+    price: {
+        type: Number,
         required: true
     }
 });
 
-const Vehicle = model('Vehicle', vehicleSchema);
-
-module.exports = Vehicle;
+module.exports = vehicleSchema;

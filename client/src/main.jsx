@@ -9,7 +9,6 @@ import { Outlet } from 'react-router-dom'
 import App from './App.jsx'
 // import FavoriteVehicles from './pages/FavoritedVehicles'
 // import GetSingleVehicle from './pages/GetSingleVehicle'
-import Homepage from './components/HomePage/index.jsx'
 // import Search from './pages/Search'
 
 const router = createBrowserRouter([
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Homepage/>
+                element: <Outlet/>
             },
             //  {
             //     path: '/search',

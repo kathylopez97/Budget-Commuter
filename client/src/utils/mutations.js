@@ -1,24 +1,24 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-        token user {
-          _id
-          username
-        }
+      token
+      user {
+        _id
+        username
       }
     }
+  }
 `;
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
-      token {
-        token user {
-          _id
-          username
-        }
+      token
+      user {
+        _id
+        username
       }
     }
   }
@@ -27,7 +27,7 @@ export const ADD_USER = gql`
 export const POST_VEHICLE = gql`
   mutation postVehicle($vehiclePostData: PostVehicle!) {
     postVehicle(vehiclePostData: $vehiclePostData) {
-      _id
+      vehicleID
       username
       make
       model
@@ -41,7 +41,7 @@ export const POST_VEHICLE = gql`
 
 export const SAVE_VEHICLE = gql`
   mutation saveVehicle($vehicle: FavoriteVehicle!) {
-    saveVehicle(vehicle: $vehicle) {
+    saveVehicle(vehicleData: $vehicle) {
       _id
       username
       email
