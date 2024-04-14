@@ -15,11 +15,11 @@ const styles = {
 function Footer() {
     return (
       <Breadcrumb style={styles.footerStyle}>
-        <Breadcrumb.Item href="">heres</Breadcrumb.Item>
+        <Breadcrumb.Item href="">Terms and Agreements</Breadcrumb.Item>
         <Breadcrumb.Item href="">
-          something
+          Privacy Policy
         </Breadcrumb.Item>
-        <Breadcrumb.Item active>Coming Soon</Breadcrumb.Item>
+        <Breadcrumb.Item href="">Contact Us</Breadcrumb.Item>
       </Breadcrumb>
     );
   }
