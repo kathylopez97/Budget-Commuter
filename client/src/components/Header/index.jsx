@@ -42,7 +42,7 @@ function Header() {
     <header style={styles.headerStyle} className="header">
       <h1 style={styles.headingStyle}>Budget Commuters</h1>
       <input style={styles.searchBarStyle}type="text" placeholder="Search for year, make, or model"></input>
-      <Button variant="primary">Search </Button>
+      <Button variant="secondary">Search </Button>
     </header>
   );
 }
