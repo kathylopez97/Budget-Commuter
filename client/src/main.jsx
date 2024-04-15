@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import HomePage from './components/Homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Outlet } from 'react-router-dom'
 
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Outlet />
+                element: <HomePage />
             },
             //  {
             //     path: '/search',
