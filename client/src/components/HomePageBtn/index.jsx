@@ -12,6 +12,15 @@ const styles = {
       fontSize: "28px",
       color: "black",
     },
+    ButtonStyle: {
+      display: "block",
+      justifyContent: "center",
+      alignItems: "evenly-spaced",
+      textAlign: "center",
+      marginBottom: "20px",
+      fontSize: "28px",
+      color: "black",
+    },
 };
 
 
@@ -20,13 +29,13 @@ function HomePageBtn() {
         <div style={styles.introStyle}>
         <h1 style={styles.textStyle}>Welcome to Budget Commuters</h1>
         <p style={styles.textStyle}>The best place to find your dream car at an affordable price</p>
-        <Button variant="secondary" size="lg">
+        <Button style={styles.ButtonStyle} variant="secondary" size="lg">
             Profile
           </Button>{' '}
-          <Button variant="secondary" size="lg">
+          <Button style={styles.ButtonStyle} variant="secondary" size="lg">
             Post Vehicle
           </Button>
-          <Button variant="secondary" size="lg">
+          <Button style={styles.ButtonStyle} variant="secondary" size="lg">
             Search
           </Button>
       </div>
