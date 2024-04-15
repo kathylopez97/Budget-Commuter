@@ -45,8 +45,8 @@ function HomePage() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Affordable luxury by miles</h5>
+          <p>2024 Lexus ES Hybrid Sadan </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -56,8 +56,8 @@ function HomePage() {
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>The best Place to find your dream car</h5>
+          <p>2023 Chevrolet Corvette Stingray </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -67,9 +67,9 @@ function HomePage() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h5>Third slide label</h5>
+          <h5>The most bang for your buck</h5>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+           2023 Ford F-150 Raptor 
           </p>
         </Carousel.Caption>
       </Carousel.Item>
