@@ -13,7 +13,7 @@ const styles = {
       color: "black",
     },
     ButtonStyle: {
-      display: "block",
+      display: "flex",
       justifyContent: "center",
       alignItems: "evenly-spaced",
       textAlign: "center",
