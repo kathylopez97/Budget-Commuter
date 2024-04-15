@@ -39,6 +39,8 @@ function HomePage() {
   };
 
   return (
+    <>
+    <HomePageBtn/>
     <Carousel style={styles.homePageStyle} activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img style={styles.imageStyle}
@@ -77,6 +79,7 @@ function HomePage() {
       </Carousel.Item>
       
     </Carousel>
+    </>
   );
   
    

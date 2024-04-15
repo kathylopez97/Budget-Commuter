@@ -42,10 +42,8 @@ function App() {
     <ApolloProvider client={client}>
 
       <Navbar/>
-      <Header/>
-      <HomePageBtn/>
-      <HomePage/>
-      <Outlet/>
+      <Header/>   
+      <Outlet />
       <Footer/>
     </ApolloProvider>
   );
