@@ -3,13 +3,15 @@ import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselImage from '../CarouselImage'
 import CarouselCaption from 'react-bootstrap/CarouselCaption'
+import Button from 'react-bootstrap/Button';
+import HomePageBtn from '../HomePageBtn';
 
 const styles = {
   homePageStyle: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "250px",
+    marginTop: "100px",
     marginBottom: "250px",
     marginLeft:"250px",
     width: "75%",
@@ -76,6 +78,8 @@ function HomePage() {
       
     </Carousel>
   );
+  
+   
 }
 
 export default HomePage;
