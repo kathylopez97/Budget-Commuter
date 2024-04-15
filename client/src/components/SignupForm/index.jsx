@@ -10,6 +10,7 @@ const SignupForm = () => {
     const [addUser] = useMutation(ADD_USER);
 
     const [formState, setFormState] = useState({
+        username: '',
         email: '',
         password: ''
     });
