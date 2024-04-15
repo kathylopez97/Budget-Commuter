@@ -24,18 +24,18 @@ const styles = {
 };
 
 
-function HomePageBtn() {
+function HomePageBtn({user}) {
     return (
         <div style={styles.introStyle}>
-        <h1 style={styles.textStyle}>Welcome to Budget Commuters</h1>
+        <h1 style={styles.textStyle}>Welcome to Budget Commuters {user}</h1>
         <p style={styles.textStyle}>The best place to find your dream car at an affordable price</p>
-        <Button style={styles.ButtonStyle} variant="secondary" size="lg">
+        <Button style={styles.ButtonStyle} href="" variant="secondary" size="lg">
             Profile
           </Button>{' '}
-          <Button style={styles.ButtonStyle} variant="secondary" size="lg">
+          <Button style={styles.ButtonStyle} href=""  variant="secondary" size="lg">
             Post Vehicle
           </Button>
-          <Button style={styles.ButtonStyle} variant="secondary" size="lg">
+          <Button style={styles.ButtonStyle} href=""  variant="secondary" size="lg">
             Search
           </Button>
       </div>
