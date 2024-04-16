@@ -1,4 +1,3 @@
-// ResultsPage.jsx
 import React from 'react';
 import ResultsSelection from '../ResultSelection';
 
