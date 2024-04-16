@@ -38,17 +38,21 @@ const SignupForm = () => {
         }
 
         try {
+
+            //error starts here
             const { data } = await addUser({
                 variables: { ...formState },
             });
-
-            auth.login(data.addUser.token);
+            
+            console.log(data);
+            auth.login(data.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
         }
 
         setFormState({
+            username:' ',
             email: '',
             password: '',
         });
