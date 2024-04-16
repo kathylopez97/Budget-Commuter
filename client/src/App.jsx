@@ -13,7 +13,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/Homepage';
 import HomePageBtn from './components/HomePageBtn';
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -40,7 +39,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-
       <Navbar/>
       <Header/>   
       <Outlet />

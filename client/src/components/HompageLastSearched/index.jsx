@@ -1,7 +1,7 @@
 // Import necessary components from react-bootstrap
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import 'Homepage.css';
 // Define a styles object for the LastSearched component
 const styles = {
     LastSearchedStyle: {

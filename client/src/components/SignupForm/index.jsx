@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 
@@ -69,6 +69,7 @@ const SignupForm = () => {
 
                 <Form.Group className='mb-3'>
                     <Form.Label htmlFor='username'>Username</Form.Label>
+                    <FaUser className='icon' />
                     <Form.Control
                         type='text'
                         placeholder='Your username'
@@ -95,6 +96,7 @@ const SignupForm = () => {
 
                 <Form.Group className='mb-3'>
                     <Form.Label htmlFor='password'>Password</Form.Label>
+                    <FaLock className='icon' />
                     <Form.Control
                         type='password'
                         placeholder='Your password'
