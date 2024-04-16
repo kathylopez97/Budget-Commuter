@@ -1,13 +1,82 @@
+.homepage {
+  width: 100%;
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #000000 0%, #d9e7ff 100%);
+}
+
 body {
     font-family: 'Rubik', sans-serif;
     background-color: lightgray;
   }
+
+  /*Welcome to Budget Commmuter Header Styling/*/
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    padding-bottom: 10px;
+    background: -webkit-linear-gradient(45deg, #09009f, #0bff85 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h2 {
+    background: radial-gradient(
+      circle at -3.1% -4.3%,
+      rgb(35, 29, 29) 0%,
+      rgb(21, 38, 82) 90%
+    );
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
+  h3
+  {
+    background: radial-gradient(
+      circle at -3.1% -4.3%,
+      rgb(0, 0, 0) 0%,
+      rgb(21, 38, 82) 90%
+    );
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  
+  h4
+  {
+    background: radial-gradient(
+      circle at -3.1% -4.3%,
+      rgb(19, 253, 2) 0%,
+      rgb(21, 38, 82) 90%
+    );
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  
+  h5{
+    background: radial-gradient(
+      circle at -3.1% -4.3%,
+      rgb(6, 6, 6) 0%,
+      rgb(21, 38, 82) 90%
+    );
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  
   h6 {
     font-family: 'Rubik Mono One', sans-serif;
   }

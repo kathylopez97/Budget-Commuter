@@ -1,40 +1,52 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import SignUpForm from '../SignupForm';
 import LoginForm from '../LoginForm';
-
 import Auth from '../../utils/auth';
-
-
+import './Navbar.css';
+import logo from '../NavBar/logo.png';
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
+  const[theme,setTheme] =useState ('light')
+  const changeTheme = () => {
+    if (theme === 'light') {
+     setTheme('dark')
+  } else {
+    setTheme('light')
+  }
+}
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Vehicle Search
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src={logo}
+              width="100"
+              height="100"
+              className="Logo"
+            />{''}
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
-            <Nav className='ml-auto d-flex'>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#search">Search</Nav.Link>
               {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Vehicles
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        <>
+          <Nav.Link as={Link} to='/saved'>
+            See Your Vehicles
+          </Nav.Link>
+          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+        </>
+      ) : (
+        <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+      )}
       {/* set modal data up */}
       <Modal
         size='lg'
@@ -67,7 +79,32 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-    </>
+    
+              <NavDropdown title="Click here for more info" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.2">
+                  Terms And Agreements
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Privacy Policy</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Contact us
+                </NavDropdown.Item>
+              </NavDropdown>
+              <a class ="nav-link" href="#" onClick ={changeTheme}>
+             {theme === 'light' ? <i class ="bi bi-toggle-off fs-3 "></i>:
+                <i class ="bi bi-toggle-on fs-3"></i>}
+                </a>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+       
+      </Navbar>
+
+  
+
+</>
+
+
   );
 };
 
