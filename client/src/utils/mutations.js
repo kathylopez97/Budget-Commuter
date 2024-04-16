@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+    loginUser(email: $email, password: $password) {
       token
       user {
         _id
@@ -12,12 +12,13 @@ export const LOGIN_USER = gql`
   }
 `;
 
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
-        _id
+        userID
         username
       }
     }
@@ -25,10 +26,9 @@ export const ADD_USER = gql`
 `;
 
 export const POST_VEHICLE = gql`
-  mutation postVehicle($vehiclePostData: PostVehicle!) {
-    postVehicle(vehiclePostData: $vehiclePostData) {
+  mutation postVehicle($vehicleData: PostVehicleInput!) {
+    postVehicle(vehicleData: $vehicleData) {
       vehicleID
-      username
       make
       model
       year
@@ -40,14 +40,13 @@ export const POST_VEHICLE = gql`
 `;
 
 export const SAVE_VEHICLE = gql`
-  mutation saveVehicle($vehicle: FavoriteVehicle!) {
-    saveVehicle(vehicleData: $vehicle) {
-      _id
+  mutation saveVehicle($vehicleData: FavoriteVehicleInput!) {
+    saveVehicle(vehicleData: $vehicleData) {
+      userID
       username
       email
       savedVehicles {
         vehicleID
-        username
         make
         model
         year
@@ -60,14 +59,13 @@ export const SAVE_VEHICLE = gql`
 `;
 
 export const REMOVE_VEHICLE = gql`
-  mutation removeVehicle($vehicleId: ID!) {
-    removeVehicle(vehicleId: $vehicleId) {
-      _id
+  mutation removeVehicle($vehicleID: ID!) {
+    removeVehicle(vehicleID: $vehicleID) {
+      userID
       username
       email
       savedVehicles {
         vehicleID
-        username
         make
         model
         year

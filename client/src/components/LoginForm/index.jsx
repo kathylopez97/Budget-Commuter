@@ -23,7 +23,6 @@ const LoginForm = () => {
     const form = event.currentTarget;
     
     if (form.checkValidity() === false) {
-      console.log(form.checkValidity)
       event.stopPropagation();
       setValidated(true);
     } else {
