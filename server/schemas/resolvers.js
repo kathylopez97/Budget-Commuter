@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Vehicle } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -11,6 +11,19 @@ const resolvers = {
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
+        },
+        searchVehicles: async (_, { query }) => {
+            try {
+                const results = await Vehicle.find({
+                    $or: [
+                        { make: { $regex: query, $options: 'i' } },
+                        { model: { $regex: query, $options: 'i' } },
+                    ],
+                });
+                return results;
+            } catch (error) {
+                throw new Error('Failed to search vehicles');
+            }
         },
     },
     Mutation: {
