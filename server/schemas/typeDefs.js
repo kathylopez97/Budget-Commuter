@@ -24,9 +24,11 @@ const typeDefs = gql`
         token: ID!
         user: User
     }
+    
 
     type Query {
         me: User
+        searchVehicles(query: String!): [Vehicle]
     }
 
     input FavoriteVehicle {
