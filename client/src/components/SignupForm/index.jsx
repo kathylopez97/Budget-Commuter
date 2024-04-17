@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
+import './Signup.css';
 import auth from '../../utils/auth';
 
 const SignupForm = () => {

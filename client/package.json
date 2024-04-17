@@ -13,6 +13,7 @@
     "@apollo/client": "^3.9.10",
     "@apollo/react-hooks": "^4.0.0",
     "bootstrap": "^5.2.3",
+    "express": "^4.19.2",
     "graphql": "^16.8.1",
     "jwt-decode": "^3.1.2",
     "nodemailer": "^6.9.13",
