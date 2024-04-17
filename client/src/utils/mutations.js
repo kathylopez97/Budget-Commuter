@@ -29,6 +29,7 @@ export const POST_VEHICLE = gql`
   mutation postVehicle($vehicleData: PostVehicleInput!) {
     postVehicle(vehiclePostData: $vehicleData) {
       vehicleID
+      userId
       make
       model
       year

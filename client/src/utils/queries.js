@@ -17,20 +17,5 @@ export const GET_ME = gql`
         price
       }
     }
-  }
-`;
-
-export const SEARCH_VEHICLES = gql`
-  query SearchVehicles($query: String!) {
-    searchVehicles(query: $query) {
-      _id
-      make
-      model
-      year
-      color
-      miles
-      price
-    }
-  }
 `;
 
