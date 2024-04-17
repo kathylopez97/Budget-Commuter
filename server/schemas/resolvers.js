@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Vehicle } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -11,6 +11,19 @@ const resolvers = {
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
+        },
+        searchVehicles: async (_, { query }) => {
+            try {
+                const results = await Vehicle.find({
+                    $or: [
+                        { make: { $regex: query, $options: 'i' } },
+                        { model: { $regex: query, $options: 'i' } },
+                    ],
+                });
+                return results;
+            } catch (error) {
+                throw new Error('Failed to search vehicles');
+            }
         },
     },
     Mutation: {
@@ -37,10 +50,10 @@ const resolvers = {
                 throw new AuthenticationError('You need to be logged in!');
             }
 
-            const { vehicleID } = vehicleData;
+            const { _id } = vehicleData;
 
             const user = await User.findOne({ _id: context.user._id });
-            if (user.savedVehicles.some(vehicle => vehicle.vehicleID === vehicleID)) {
+            if (user.savedVehicles.some(vehicle => vehicle._id === _id)) {
                 throw new Error('Vehicle is already saved');
             }
 

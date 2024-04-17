@@ -1,10 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const vehicleSchema = new Schema({
-    vehicleID: {
-        type: String,
-        required: true,
-        unique: true
+    _id: {
+        type: Schema.Types.ObjectId
     },
     user: {
         type: Schema.Types.ObjectId,
