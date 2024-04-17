@@ -90,9 +90,9 @@ const AppNavbar = () => {
                   Contact us
                 </NavDropdown.Item>
               </NavDropdown>
-              <a class ="nav-link" href="#" onClick ={changeTheme}>
-             {theme === 'light' ? <i class ="bi bi-toggle-off fs-3 "></i>:
-                <i class ="bi bi-toggle-on fs-3"></i>}
+              <a className ="nav-link" href="#" onClick ={changeTheme}>
+             {theme === 'light' ? <i className ="bi bi-toggle-off fs-3 "></i>:
+                <i className ="bi bi-toggle-on fs-3"></i>}
                 </a>
             </Nav>
           </Navbar.Collapse>

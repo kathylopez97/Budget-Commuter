@@ -10,12 +10,10 @@ import {
 //NEEDED THIS PAGE TO MAKE THINGS WORk. From book project, It works though
 
 const SearchVehicles = () => {
-
   const [searchInput, setSearchInput] = useState('');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     if (!searchInput) {
       return false;
     }
