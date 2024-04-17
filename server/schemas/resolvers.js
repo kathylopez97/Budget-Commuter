@@ -50,10 +50,10 @@ const resolvers = {
                 throw new AuthenticationError('You need to be logged in!');
             }
 
-            const { vehicleID } = vehicleData;
+            const { _id } = vehicleData;
 
             const user = await User.findOne({ _id: context.user._id });
-            if (user.savedVehicles.some(vehicle => vehicle.vehicleID === vehicleID)) {
+            if (user.savedVehicles.some(vehicle => vehicle._id === _id)) {
                 throw new Error('Vehicle is already saved');
             }
 

@@ -1,33 +1,30 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Vehicle = require('../models/Vehicle');
-const { v4: uuidv4 } = require('uuid');
 
 mongoose.connect('mongodb://localhost:27017/vehicleEcommerce-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-// Sample user data with explicit _id fields
-const users = [
-    { _id: new mongoose.Types.ObjectId(), username: 'user1', email: 'user1@example.com', password: 'password1' },
-    { _id: new mongoose.Types.ObjectId(), username: 'user2', email: 'user2@example.com', password: 'password2' },
-];
-
 const seed = async () => {
     try {
         await User.deleteMany();
         await Vehicle.deleteMany();
 
-        // Create users and store the result in createdUsers
+        // Sample user data
+        const users = [
+            { username: 'user1', email: 'user1@example.com', password: 'password1' },
+            { username: 'user2', email: 'user2@example.com', password: 'password2' },
+        ];
+
+        // Create users
         const createdUsers = await User.create(users);
 
-        // Sample vehicle data with explicit _id fields and valid user references
+        // Sample vehicle data
         const vehicles = [
             {
-                _id: new mongoose.Types.ObjectId(),
-                user: createdUsers[0]._id, // Use the _id of the first created user
-                vehicleID: uuidv4(),
+                user: createdUsers[0]._id,
                 make: 'Toyota',
                 model: 'Camry',
                 year: 2020,
@@ -36,9 +33,7 @@ const seed = async () => {
                 price: 25000
             },
             {
-                _id: new mongoose.Types.ObjectId(),
-                user: createdUsers[1]._id, // Use the _id of the second created user
-                vehicleID: uuidv4(),
+                user: createdUsers[1]._id,
                 make: 'Honda',
                 model: 'Accord',
                 year: 2018,
@@ -48,7 +43,7 @@ const seed = async () => {
             },
         ];
 
-        // Create vehicles using the sample data
+        // Create vehicles
         const createdVehicles = await Vehicle.create(vehicles);
 
         console.log('Sample data seeded successfully:', createdUsers, createdVehicles);
@@ -60,5 +55,3 @@ const seed = async () => {
 };
 
 seed();
-
-
