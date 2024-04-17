@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cd server && node server.js",
     "develop": "concurrently \"set DEBUG=app:addUser&&cd server&&npm run watch\" \"cd client&&npm run dev\"",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "seed": "node server/utils/seed.js"
   },
   "keywords": [],
   "author": "",
