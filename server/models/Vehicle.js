@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const vehicleSchema = new Schema({
-    vehicleID: {
+    _id: {
         type: String,
         required: true,
         unique: true

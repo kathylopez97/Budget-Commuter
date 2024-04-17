@@ -3,7 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Vehicle {
         vehicleID: ID
-        username: String
+        owner: User
         make: String
         model: String
         year: Int
@@ -18,6 +18,7 @@ const typeDefs = gql`
         email: String
         password: String
         savedVehicles: [Vehicle]
+        postedVehicles: [Vehicle]
     }
 
     type Auth {
@@ -30,8 +31,7 @@ const typeDefs = gql`
     }
 
     input FavoriteVehicle {
-        vehicleID: ID
-        username: String
+        userId: ID!
         make: String
         model: String
         year: Int
@@ -41,7 +41,7 @@ const typeDefs = gql`
     }
 
     input PostVehicle {
-        username: String!
+        userId: ID!
         make: String!
         model: String!
         year: Int!

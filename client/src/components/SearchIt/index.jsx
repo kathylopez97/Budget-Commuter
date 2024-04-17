@@ -1,5 +1,5 @@
 // Import necessary modules from react and axios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 
 // Define the SearchIt component
@@ -15,7 +15,7 @@ const SearchIt = () => {
         e.preventDefault();
         try {
             // Send a GET request to the search API with the current query
-            const { data } = await axios.get(`http://localhost:5000/api/search?search=${query}`);
+            const { data } = await axios.get(`http://localhost:3001/api/search?search=${query}`);
             // Update the results state with the received data
             setResults(data);
         } catch (error) {
