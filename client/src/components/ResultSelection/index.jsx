@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 const styles = {
@@ -14,11 +14,36 @@ const styles = {
     width:"50%",
     borderRadius: "4px",
     fontSize: "18",
+   
+  
+    font: "italic",
+  },
+  textStyle: {
+    color: "black",
+    fontSize: "18px",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  buttonStyle: {
+    backgroundColor: "#grey",
+    color: "black",
+    border: "1px solid black",
+    borderRadius: "4px",
+    fontSize: "18px",
+    fontWeight: "bold",
+    padding: "10px 20px",
+    margin: "10px",
+    width: "5%",
+    
+  },
+  containerStyle: {
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "50px",
-    font: "italic",
+
   },
+  
 };
 
 import { useState, useEffect } from 'react';
@@ -55,21 +80,36 @@ const ResultSelection = () => {
     return (
         <div>
           {/* When the form is submitted, call the handleSearch function */}
-          <form onSubmit={handleSearch}>
+          <form style={styles.containerStyle} onSubmit={handleSearch}>
             {/* Update the query state whenever the input field's value changes */}
             <input style={styles.searchBarStyle} type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-            <button type="submit">Search</button>
+            <button style={styles.buttonStyle} type="submit">Search</button>
           </form>
           {/* Map over the results and render each one */}
           {loading? (
             <div>Loading...</div>
           ) : (
             <div>
-              {results.map((vehicle) => (
-                <div key={vehicle._id}>
+              {results.map((vehicle, index) => (
+                // Need to look into a permanent key solution
+                <div key={index}>
                   {/* Render each vehicle */}
-                  <p>Vehicle info</p>
-                  {vehicle.name}
+                              
+                              <Card style={{ width: '25rem' }}>
+                      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                      <Card.Body>
+                        <Card.Title>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
+                      </Card.Body>
+                      <ListGroup className="list-group-flush">
+                        <ListGroup.Item>{vehicle.color}</ListGroup.Item>
+                        <ListGroup.Item>{vehicle.miles}</ListGroup.Item>
+                        <ListGroup.Item>{vehicle.price}</ListGroup.Item>
+                      </ListGroup>
+                      <Card.Body>
+                        <Card.Link href="#">Card Link</Card.Link>
+                        <Card.Link href="#">Another Link</Card.Link>
+                      </Card.Body>
+                    </Card>
                 </div>
               ))}
             </div>

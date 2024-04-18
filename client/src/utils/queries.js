@@ -27,6 +27,9 @@ export const GET_ME = gql`
         make
         model
         year
+        color
+        miles
+        price
       }
     }
     `;

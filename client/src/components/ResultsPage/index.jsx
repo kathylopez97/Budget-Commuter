@@ -2,20 +2,17 @@ import React from 'react';
 import ResultsSelection from '../ResultSelection';
 
 const styles = {
-    searchBarStyle: {
-    border: "1px solid black",
-    outline: "none",
-    background: "#ebfffc",
-    color:"#555",
-    padding: "0px 17px",
-    height: "46px",
-    width:"50%",
-    borderRadius: "4px",
-    fontSize: "18",
+   textStyle: {
+    fontWeight: "bold",
+    padding: "10px 20px",
+    margin: "10px",
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "50px",
-    font: "italic",
+    color: "black",
+    fontSize: "54px",
+    textAlign: "center",
   },
   };
 
@@ -23,8 +20,7 @@ const styles = {
 const ResultsPage = () => {
     return (
         <div>
-            <h1>Search Results</h1>
-
+            <h1 style={styles.textStyle}>Search Results</h1>
             <ResultsSelection />
         </div>
     );
