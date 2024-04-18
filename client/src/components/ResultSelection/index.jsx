@@ -14,9 +14,12 @@ const styles = {
     width:"50%",
     borderRadius: "4px",
     fontSize: "18",
-   
-  
     font: "italic",
+    fontWeight: "bold",
+    marginBottom: "20px",
+  },
+  titleStyle: {
+    fontSize: "36px",
   },
   textStyle: {
     color: "black",
@@ -32,7 +35,9 @@ const styles = {
     fontSize: "18px",
     fontWeight: "bold",
     padding: "10px 20px",
-    margin: "10px",
+    marginBottom: "20px",
+    
+    marginLeft: "10px",
     width: "5%",
     
   },
@@ -40,8 +45,21 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "50px",
-
+    marginBottom: "20px",
+    
+  },
+  cardStyle: {
+    width: "25rem",
+    margin: "10px",
+    display: "flex",
+    flexDirection: "wrap",
+    backgroundColor: "darkgrey",
+  },
+  listGroupStyle: {
+    display: "block",
+    justifyContent: "center",
+    alignText: "center",
+    fontSize: "24px"
   },
   
 };
@@ -65,7 +83,7 @@ const ResultSelection = () => {
         console.log("submitting", query);
         try {
           // Send a GET request to the search API with the current query
-            console.log(data.searchVehicles)
+            console.log(data)
             // Update the results state with the received data
             setResults(data.searchVehicles);
         } catch (error) {
@@ -90,24 +108,24 @@ const ResultSelection = () => {
             <div>Loading...</div>
           ) : (
             <div>
-              {results.map((vehicle, index) => (
+              {results.map((vehicle, ) => (
                 // Need to look into a permanent key solution
-                <div key={index}>
+                <div key={vehicle._id}>
                   {/* Render each vehicle */}
                               
-                              <Card style={{ width: '25rem' }}>
-                      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                              <Card style={styles.cardStyle}>
+                      <Card.Img variant="top" src="https://di-uploads-pod14.dealerinspire.com/oaklawntoyota/uploads/2020/01/2020-Toyota-Camry-Ruby-Flare-Pearl.png" />
                       <Card.Body>
-                        <Card.Title>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
+                        <Card.Title style={styles.titleStyle}>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
                       </Card.Body>
-                      <ListGroup className="list-group-flush">
-                        <ListGroup.Item>{vehicle.color}</ListGroup.Item>
-                        <ListGroup.Item>{vehicle.miles}</ListGroup.Item>
-                        <ListGroup.Item>{vehicle.price}</ListGroup.Item>
+                      <ListGroup style={styles.listGroupStyle} className="list-group-flush">
+                        <ListGroup.Item>Color: {vehicle.color}</ListGroup.Item>
+                        <ListGroup.Item>Miles: {vehicle.miles}</ListGroup.Item>
+                        <ListGroup.Item>Price: {vehicle.price}</ListGroup.Item>
                       </ListGroup>
                       <Card.Body>
-                        <Card.Link href="#">Card Link</Card.Link>
-                        <Card.Link href="#">Another Link</Card.Link>
+                        <Card.Link href="#"> Vehicle Posting</Card.Link>
+                        <Card.Link href="#">Sellers Profile</Card.Link>
                       </Card.Body>
                     </Card>
                 </div>

@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type Vehicle {
-        vehicleID: ID
+        _id: ID
         userId: ID!
         make: String
         model: String

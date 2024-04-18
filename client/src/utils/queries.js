@@ -23,7 +23,7 @@ export const GET_ME = gql`
     export const GET_VEHICLES = gql`
     query SearchVehicles($query: String!) {
       searchVehicles(query: $query) {
-        vehicleID
+        _id
         make
         model
         year
