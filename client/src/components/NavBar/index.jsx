@@ -36,7 +36,7 @@ const AppNavbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#search">Search</Nav.Link>
+              <Nav.Link href="/results">Search</Nav.Link>
               {Auth.loggedIn() ? (
         <>
           <Nav.Link as={Link} to='/saved'>

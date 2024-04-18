@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultsSelection from '../ResultSelection';
+import ResultsSelection from '../components/ResultSelection/index.jsx';
 
 const styles = {
     searchBarStyle: {
@@ -24,11 +24,11 @@ const ResultsPage = () => {
     return (
         <div>
             <h1>Search Results</h1>
-
+            <input style={styles.searchBarStyle} type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+            <button type="submit">Search</button>
             <ResultsSelection />
         </div>
     );
 };
 
 export default ResultsPage;
-

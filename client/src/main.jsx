@@ -3,7 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/Homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Outlet } from 'react-router-dom'
-
+import ResultsSelection from './components/ResultSelection'
+import ResultsPage from './components/ResultsPage'
 
 import App from './App.jsx'
 // import FavoriteVehicles from './pages/FavoritedVehicles'
@@ -20,6 +21,18 @@ const router = createBrowserRouter([
                 index: true,
                 element: <HomePage />
             },
+            {
+                path: '/results',
+                element: <ResultsPage/>
+            },
+            {
+                path: '/favorites',
+                element: <Outlet />
+            },
+            {
+                path: '/vehicle/:id',
+                element: <Outlet />   
+            }
         ]
     }
 ])
