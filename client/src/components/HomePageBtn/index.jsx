@@ -1,5 +1,10 @@
-import Button from "react-bootstrap/Button";
-import PostVehicle from "../PostVehicle";
+
+import React, { useState } from "react";
+import PostVehicle from '../PostVehicle/index';
+import {Modal, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom'
+
+
 
 const styles = {
   introStyle: {
@@ -34,6 +39,9 @@ const styles = {
 };
 
 function HomePageBtn({ user }) {
+  const [postVehicle, setPostVehicle] = useState(false);
+  const [validated, setValidated] = useState(false);
+
   return (
     <div style={styles.introStyle}>
       <h1 style={styles.textStyle}>Welcome to Budget Commuters {user}</h1>
@@ -41,16 +49,15 @@ function HomePageBtn({ user }) {
         The best place to find your dream car at an affordable price
       </p>
       <div style={styles.ButtonDivStyle}>
-
-        <Button  href="" variant="secondary" size="lg">
+        <Button  href="/profile" variant="secondary" size="lg">
             Profile
-        </Button>{" "}
-        <Button href="" variant="secondary" size="lg">
+        </Button>
+        <Button variant="secondary" size="lg" onClick={()=>setPostVehicle(true)}>
             Post Vehicle
         </Button>
-        <Button  href="" variant="secondary" size="lg">
-            Search
-        </Button>
+        <Modal show={postVehicle} onHide={()=>setPostVehicle(false)}>
+          <PostVehicle/>
+          </Modal>
       </div>
     </div>
     

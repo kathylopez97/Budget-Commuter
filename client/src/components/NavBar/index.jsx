@@ -7,6 +7,8 @@ import LoginForm from '../LoginForm';
 import Auth from '../../utils/auth';
 import './Navbar.css';
 import logo from '../NavBar/logo.png';
+import PostVehicle from '../PostVehicle/index'
+
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);

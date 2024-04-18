@@ -19,7 +19,7 @@ const resolvers = {
                         { make: { $regex: query, $options: 'i' } },
                         { model: { $regex: query, $options: 'i' } },
                     ],
-                });
+                })
                 return results;
             } catch (error) {
                 throw new Error('Failed to search vehicles');
