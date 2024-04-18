@@ -15,6 +15,8 @@ const styles = {
     borderRadius: "4px",
     fontSize: "18",
     font: "italic",
+    fontWeight: "bold",
+    marginBottom: "20px",
   },
   titleStyle: {
     fontSize: "36px",
@@ -33,7 +35,9 @@ const styles = {
     fontSize: "18px",
     fontWeight: "bold",
     padding: "10px 20px",
-    margin: "10px",
+    marginBottom: "20px",
+    
+    marginLeft: "10px",
     width: "5%",
     
   },
@@ -41,7 +45,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "50px",
+    marginBottom: "20px",
+    
   },
   cardStyle: {
     width: "25rem",
@@ -78,7 +83,7 @@ const ResultSelection = () => {
         console.log("submitting", query);
         try {
           // Send a GET request to the search API with the current query
-            console.log(data.searchVehicles)
+            console.log(data)
             // Update the results state with the received data
             setResults(data.searchVehicles);
         } catch (error) {
@@ -103,9 +108,9 @@ const ResultSelection = () => {
             <div>Loading...</div>
           ) : (
             <div>
-              {results.map((vehicle, index) => (
+              {results.map((vehicle, ) => (
                 // Need to look into a permanent key solution
-                <div key={index}>
+                <div key={vehicle._id}>
                   {/* Render each vehicle */}
                               
                               <Card style={styles.cardStyle}>
