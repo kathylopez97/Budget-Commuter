@@ -109,7 +109,7 @@ const ResultSelection = () => {
                   {/* Render each vehicle */}
                               
                               <Card style={styles.cardStyle}>
-                      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                      <Card.Img variant="top" src="https://di-uploads-pod14.dealerinspire.com/oaklawntoyota/uploads/2020/01/2020-Toyota-Camry-Ruby-Flare-Pearl.png" />
                       <Card.Body>
                         <Card.Title style={styles.titleStyle}>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
                       </Card.Body>
