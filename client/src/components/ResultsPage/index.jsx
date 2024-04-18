@@ -5,7 +5,7 @@ const styles = {
    textStyle: {
     fontWeight: "bold",
     padding: "10px 20px",
-    margin: "10px",
+    marginTop: "100px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
