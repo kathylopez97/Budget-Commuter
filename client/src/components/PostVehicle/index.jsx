@@ -27,7 +27,6 @@ const VehiclePost = () => {
         if(form.checkValidity() === false) {
             event.stopPropagation();
             setValidated(true);
-            return;
         }
 
         try {
@@ -54,8 +53,11 @@ const VehiclePost = () => {
         }
     }
     return (
+        <>
         <Form noValidate validated={validated} onSubmit={handleFormSubmnit}>
         <Form.Group className='mb-3 p-4'>
+        {Auth.loggedIn() ? (
+            <>
             <Form.Label htmlFor='make'>Make</Form.Label>
             <Form.Control
                 type='text'
@@ -74,6 +76,7 @@ const VehiclePost = () => {
                 onChange={handleInputChange}
                 required
             />
+            
             <Form.Label htmlFor='year'>Year</Form.Label>
             <Form.Control
                 type='number'
@@ -111,8 +114,13 @@ const VehiclePost = () => {
                 required
             />
             <Button className="mt-4" type='submit' variant='success'>Post Vehicle</Button>
+            </>
+        ) : (
+            <Alert variant='warning'>You must be logged in to post a vehicle!</Alert>
+        )}
         </Form.Group>
         </Form>
+        </>
     );
 };
 
