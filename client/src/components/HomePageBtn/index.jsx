@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PostVehicle from '../PostVehicle/index';
-import { Link } from 'react-router-dom';
 import {Modal, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 
 const styles = {
@@ -38,6 +38,7 @@ const styles = {
 
 function HomePageBtn({ user }) {
   const [postVehicle, setPostVehicle] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   return (
     <div style={styles.introStyle}>
@@ -46,8 +47,7 @@ function HomePageBtn({ user }) {
         The best place to find your dream car at an affordable price
       </p>
       <div style={styles.ButtonDivStyle}>
-
-        <Button  href="" variant="secondary" size="lg">
+        <Button  href="/profile" variant="secondary" size="lg">
             Profile
         </Button>
         <Button variant="secondary" size="lg" onClick={()=>setPostVehicle(true)}>
