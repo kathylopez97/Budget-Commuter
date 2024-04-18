@@ -31,8 +31,8 @@ const styles = {
     borderRadius: "4px",
     fontSize: "18",
     justifyContent: "center",
-    alignitems: "center",
-    marginBotton: "50px",
+    alignItems: "center",
+    marginBottom: "50px",
     font: "italic",
   },
 };
@@ -41,8 +41,6 @@ function Header() {
   return (
     <header style={styles.headerStyle} className="header">
       <h1 style={styles.headingStyle}>Budget Commuters</h1>
-      <input style={styles.searchBarStyle}type="text" placeholder="Search for year, make, or model"></input>
-      <Button variant="secondary">Search </Button>
     </header>
   );
 }
