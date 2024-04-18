@@ -14,9 +14,10 @@ const styles = {
     width:"50%",
     borderRadius: "4px",
     fontSize: "18",
-   
-  
     font: "italic",
+  },
+  titleStyle: {
+    fontSize: "36px",
   },
   textStyle: {
     color: "black",
@@ -41,7 +42,19 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "50px",
-
+  },
+  cardStyle: {
+    width: "25rem",
+    margin: "10px",
+    display: "flex",
+    flexDirection: "wrap",
+    backgroundColor: "darkgrey",
+  },
+  listGroupStyle: {
+    display: "block",
+    justifyContent: "center",
+    alignText: "center",
+    fontSize: "24px"
   },
   
 };
@@ -95,19 +108,19 @@ const ResultSelection = () => {
                 <div key={index}>
                   {/* Render each vehicle */}
                               
-                              <Card style={{ width: '25rem' }}>
+                              <Card style={styles.cardStyle}>
                       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
                       <Card.Body>
-                        <Card.Title>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
+                        <Card.Title style={styles.titleStyle}>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>              
                       </Card.Body>
-                      <ListGroup className="list-group-flush">
-                        <ListGroup.Item>{vehicle.color}</ListGroup.Item>
-                        <ListGroup.Item>{vehicle.miles}</ListGroup.Item>
-                        <ListGroup.Item>{vehicle.price}</ListGroup.Item>
+                      <ListGroup style={styles.listGroupStyle} className="list-group-flush">
+                        <ListGroup.Item>Color: {vehicle.color}</ListGroup.Item>
+                        <ListGroup.Item>Miles: {vehicle.miles}</ListGroup.Item>
+                        <ListGroup.Item>Price: {vehicle.price}</ListGroup.Item>
                       </ListGroup>
                       <Card.Body>
-                        <Card.Link href="#">Card Link</Card.Link>
-                        <Card.Link href="#">Another Link</Card.Link>
+                        <Card.Link href="#"> Vehicle Posting</Card.Link>
+                        <Card.Link href="#">Sellers Profile</Card.Link>
                       </Card.Body>
                     </Card>
                 </div>
