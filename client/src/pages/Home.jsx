@@ -6,7 +6,6 @@ import {
   Button,
   Row
 } from 'react-bootstrap';
-
 //NEEDED THIS PAGE TO MAKE THINGS WORk. From book project, It works though
 
 const SearchVehicles = () => {

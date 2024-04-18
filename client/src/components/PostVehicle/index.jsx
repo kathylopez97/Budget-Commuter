@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { POST_VEHICLE } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-const VehiclePost = ({ vehicle }) => {
+const VehiclePost = () => {
     const [postVehicle] = useMutation(POST_VEHICLE);
     const [validated, setValidated] = useState(false);
     const [userFormData, setUserFormData] = useState({
@@ -55,7 +55,7 @@ const VehiclePost = ({ vehicle }) => {
     }
     return (
         <Form noValidate validated={validated} onSubmit={handleFormSubmnit}>
-        <Form.Group className='mb-3'>
+        <Form.Group className='mb-3 p-4'>
             <Form.Label htmlFor='make'>Make</Form.Label>
             <Form.Control
                 type='text'
@@ -110,7 +110,7 @@ const VehiclePost = ({ vehicle }) => {
                 onChange={handleInputChange}
                 required
             />
-            <Button type='submit' variant='success'>Post Vehicle</Button>
+            <Button className="mt-4" type='submit' variant='success'>Post Vehicle</Button>
         </Form.Group>
         </Form>
     );
