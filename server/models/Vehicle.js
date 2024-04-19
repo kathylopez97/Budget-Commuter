@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const vehicleSchema = new Schema({
-    _id: {
-        type: Schema.Types.ObjectId
-    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
