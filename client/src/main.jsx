@@ -1,3 +1,4 @@
+import React from "react";
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/Homepage'
@@ -14,8 +15,10 @@ import App from './App.jsx'
 // import Search from './pages/Search'
 
 const router = createBrowserRouter([
+    
     {
         path: '/',
+        
         element: <App />,
         errorElement: <h1 className='display-2'>Wrong Page!</h1>,
         children: [
@@ -42,3 +45,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
 )
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  rootElement
+);

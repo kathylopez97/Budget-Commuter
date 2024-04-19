@@ -76,6 +76,7 @@ const VehiclePost = () => {
                 <Form.Group className='mb-3 p-4'>
                     {Auth.loggedIn() ? (
                         <>
+                        <Modal.Header closeButton></Modal.Header>
                             <Form.Label htmlFor='make'>Make</Form.Label>
                             <Form.Control
                                 type='text'

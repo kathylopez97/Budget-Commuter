@@ -13,14 +13,6 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
-  const [theme, setTheme] = useState('light')
-  const changeTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark')
-    } else {
-      setTheme('light')
-    }
-  }
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -37,17 +29,27 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/results">Search</Nav.Link>
+              <Nav.Link href="/">
+               <button type="button" class="btn btn-secondary">
+                Home</button></Nav.Link>
+               
+              <Nav.Link href="/results">
+              <button type="button" class="btn btn-secondary">
+                Search</button></Nav.Link>
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/favorites'>
+                  <button type="button" class="btn btn-secondary">
                     See Your Vehicles
+                    </button>
                   </Nav.Link>
+                  
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>
+                  <button type="button" class="btn btn-secondary">
+                  Login/Sign Up</button></Nav.Link>
               )}
               {/* set modal data up */}
               <Modal
@@ -61,10 +63,17 @@ const AppNavbar = () => {
                     <Modal.Title id='signup-modal'>
                       <Nav variant='pills'>
                         <Nav.Item>
-                          <Nav.Link eventKey='login'>Login</Nav.Link>
+                          <Nav.Link
+                           eventKey='login'>
+                               <button type="button" class="btn btn-secondary">Login</button>
+                               </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                          <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                          <Nav.Link eventKey='signup'>    <button type="button" class="btn btn-secondary">
+                            
+                            Sign Up
+                            </button>
+                          </Nav.Link>
                         </Nav.Item>
                       </Nav>
                     </Modal.Title>
@@ -82,7 +91,7 @@ const AppNavbar = () => {
                 </Tab.Container>
               </Modal>
 
-              <NavDropdown title="Click here for more info" id="basic-nav-dropdown">
+              <NavDropdown  title="Click here for more info" id="dark-nav-dropdown">
                 <NavDropdown.Item href="#action/3.2">
                   Terms And Agreements
                 </NavDropdown.Item>
@@ -92,10 +101,6 @@ const AppNavbar = () => {
                   Contact us
                 </NavDropdown.Item>
               </NavDropdown>
-              <a className="nav-link" href="#" onClick={changeTheme}>
-                {theme === 'light' ? <i className="bi bi-toggle-off fs-3 "></i> :
-                  <i className="bi bi-toggle-on fs-3"></i>}
-              </a>
             </Nav>
           </Navbar.Collapse>
         </Container>

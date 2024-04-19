@@ -6,7 +6,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
-
+import React, { useState } from "react";
+import "./App.css";
 import Navbar from './components/NavBar';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
@@ -37,14 +38,40 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+// add light and dark mode functionfor header for users to chose lighting preference
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
+    
     <ApolloProvider client={client}>
-      <Navbar/>
-      <Header/>  
-      <Outlet />
-      <Footer/> 
+
+      <Navbar />
+
+
+      <Header />
+      <div className={darkMode ? "dark-mode" : "light-mode"}>
+        <div className="container">
+          <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+          <div className="switch-checkbox">
+            <label className="switch">
+              <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+              <span className="slider round"> </span>
+            </label>
+          </div>
+          <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
+        </div>
+
+
+
+        <Outlet />
+        <Footer />
+        <div>
+
+
+
+        </div>
+      </div>
+
     </ApolloProvider>
   );
 }
