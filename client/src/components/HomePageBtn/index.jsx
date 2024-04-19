@@ -1,8 +1,8 @@
 
 import React, { useState } from "react";
 import PostVehicle from '../PostVehicle/index';
-import {Modal, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import { Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 
 
@@ -49,18 +49,18 @@ function HomePageBtn({ user }) {
         The best place to find your dream car at an affordable price
       </p>
       <div style={styles.ButtonDivStyle}>
-        <Button  href="/profile" variant="secondary" size="lg">
-            Profile
+        <Button href="/profile" variant="secondary" size="lg">
+          Profile
         </Button>
-        <Button variant="secondary" size="lg" onClick={()=>setPostVehicle(true)}>
-            Post Vehicle
+        <Button variant="secondary" size="lg" onClick={() => setPostVehicle(true)}>
+          Post Vehicle
         </Button>
-        <Modal show={postVehicle} onHide={()=>setPostVehicle(false)}>
-          <PostVehicle/>
-          </Modal>
+        <Modal show={postVehicle} onHide={() => setPostVehicle(false)}>
+          <PostVehicle />
+        </Modal>
       </div>
     </div>
-    
+
   );
 }
 

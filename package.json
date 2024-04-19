@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "cd server && node server.js",
-    "develop": "concurrently \"set DEBUG=app:addUser&&cd server&&npm run watch\" \"cd client&&npm run dev\"",   
+    "develop": "concurrently \"cd server&&npm run watch\" \"cd client&&npm run dev\"",   
     "render-build": "npm install && npm run build",
     "install": "cd server && npm i && cd ../client && npm i --production=false",
     "build": "cd client && npm run build"
