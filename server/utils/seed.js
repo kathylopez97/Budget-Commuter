@@ -14,8 +14,8 @@ const seed = async () => {
 
         // Sample user data
         const users = [
-            { username: 'user1', email: 'user1@example.com', password: 'password1' },
-            { username: 'user2', email: 'user2@example.com', password: 'password2' },
+            {username: 'user1', email: 'user1@example.com', password: 'password1' },
+            {username: 'user2', email: 'user2@example.com', password: 'password2' },
         ];
 
         // Create users

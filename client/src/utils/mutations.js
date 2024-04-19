@@ -26,18 +26,18 @@ export const ADD_USER = gql`
 `;
 
 export const POST_VEHICLE = gql`
-  mutation postVehicle($vehicleData: PostVehicleInput!) {
-    postVehicle(vehiclePostData: $vehicleData) {
-      _id
-      user
-      make
-      model
-      year
-      color
-      miles
-      price
-    }
+mutation postVehicle($vehicleData: PostVehicle!) {
+  postVehicle(vehiclePostData: $vehicleData) {
+    _id
+    user
+    color
+    make
+    miles
+    model
+    price
+    year
   }
+}
 `;
 export const SAVE_VEHICLE = gql`
   mutation saveVehicle($vehicleData: FavoriteVehicleInput!) {
@@ -46,8 +46,7 @@ export const SAVE_VEHICLE = gql`
       username
       email
       savedVehicles {
-        _id
-        user
+        vehicleID
         make
         model
         year

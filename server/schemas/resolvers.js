@@ -75,11 +75,12 @@ const resolvers = {
                 { new: true }
             );
         },
-        postVehicle: async (parent, { vehiclePostData }, context) => {
+        postVehicle: async (parent, args, context) => {
+            console.log(context);
             if (!context.user) {
                 throw new AuthenticationError('You need to be logged in!');
             }
-            const vehicle = await Vehicle.create({ ...vehiclePostData, username: context.user.username });
+            const vehicle = await Vehicle.create({ ...args, user: context.user._id});
             return vehicle;
         },
     },

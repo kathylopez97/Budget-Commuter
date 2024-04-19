@@ -17,8 +17,6 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
-        savedVehicles: [Vehicle]
-        postedVehicles: [Vehicle]
     }
 
     type Auth {
@@ -33,7 +31,7 @@ const typeDefs = gql`
     }
 
     input FavoriteVehicle {
-        _id: ID!
+        _id: ID
         user: ID!
         make: String
         model: String
@@ -44,7 +42,6 @@ const typeDefs = gql`
     }
 
     input PostVehicle {
-        _id: ID!
         user: ID!
         make: String!
         model: String!

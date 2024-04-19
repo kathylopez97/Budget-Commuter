@@ -1,7 +1,10 @@
 // Import necessary components from react-bootstrap
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import 'Homepage.css';
+import './Homepage.css';
+import Auth from '../../utils/auth';
+import { Modal } from 'react-bootstrap';
 // Define a styles object for the LastSearched component
 const styles = {
     LastSearchedStyle: {
@@ -15,8 +18,14 @@ const styles = {
     },
 };
 
+
 // Define the LastSearched component
 function LastSearched({ vehiclename, make, model, year, price }) {
+
+
+
+
+
     // Render a Card component with the passed props
     return (
       <Card style={{ width: '18rem' }}>
