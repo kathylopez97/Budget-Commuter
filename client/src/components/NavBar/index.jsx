@@ -41,7 +41,7 @@ const AppNavbar = () => {
               <Nav.Link href="/results">Search</Nav.Link>
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
+                  <Nav.Link as={Link} to='/favorites'>
                     See Your Vehicles
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
