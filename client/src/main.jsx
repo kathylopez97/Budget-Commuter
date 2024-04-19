@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/Homepage'
-import Profile from './components/profile/'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Outlet } from 'react-router-dom'
 import ResultsPage from './components/ResultsPage'
@@ -21,6 +20,18 @@ const router = createBrowserRouter([
                 index: true,
                 element: <HomePage />
             },
+            {
+                path: '/results',
+                element: <ResultsPage />
+            },
+            {
+                path: '/favorites',
+                element: <Outlet />
+            },
+            {
+                path: '/vehicle/:id',
+                element: <Outlet />
+            }
         ]
     }
 ])
