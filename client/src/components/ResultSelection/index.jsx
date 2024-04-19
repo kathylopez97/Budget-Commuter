@@ -1,4 +1,4 @@
-import { Modal, Button, Card, ListGroup } from 'react-bootstrap';
+import { Modal, Button, Card, ListGroup, Alert, Form } from 'react-bootstrap';
 
 const styles = {
   searchBarStyle: {
@@ -66,6 +66,8 @@ const styles = {
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_VEHICLES } from '../../utils/queries';
+import Auth from '../../utils/auth'
+import PostVehicle from '../PostVehicle/index'
 
 // Define the SearchIt component
 const ResultSelection = () => {
@@ -92,6 +94,14 @@ const ResultSelection = () => {
       setError('Error fetching data');
     }
   };
+
+
+  const [editVehicle, setEditVehicle] = useState(false)
+
+
+  const getSeller = () => {
+    setEditVehicle(true);
+  }
 
   // Render the component
 
@@ -125,22 +135,88 @@ const ResultSelection = () => {
                 </ListGroup>
                 <Card.Body>
                   <Card.Link style={styles.hoverStlye} onClick={() => setClickVehicle(true)}> Vehicle Posting</Card.Link>
-                  <Card.Link href="#">Contact Seller</Card.Link>
+
+                  {/* {Added this in, Only authorized people can see sell vehicle} */}
+                  {Auth.getProfile(vehicle.user).data._id === vehicle.user ? (
+                    <>
+                      <Card.Link style={styles.hoverStlye} onClick={() => setEditVehicle(true)}>Edit Vehicle</Card.Link>
+                      <Modal show={editVehicle} onHide={() => setEditVehicle(false)}>
+                      <>
+                            <Form.Label htmlFor='make'>Make</Form.Label>
+                            <Form.Control
+                                type='text'
+                                placeholder='Make'
+                                name='make'
+                                value={vehicle.make}
+                                required
+                            />
+                            <Form.Label htmlFor='model'>Model</Form.Label>
+                            <Form.Control
+                                type='text'
+                                placeholder='Model'
+                                name='model'
+                                value={vehicle.model}
+                                required
+                            />
+
+                            <Form.Label htmlFor='year'>Year</Form.Label>
+                            <Form.Control
+                                type='number'
+                                placeholder='Year'
+                                name='year'
+                                value={vehicle.year}
+                                required
+                            />
+                            <Form.Label htmlFor='color'>Color</Form.Label>
+                            <Form.Control
+                                type='text'
+                                placeholder='Color'
+                                name='color'
+                                value={vehicle.color}
+                                required
+                            />
+                            <Form.Label htmlFor='miles'>Miles</Form.Label>
+                            <Form.Control
+                                type='number'
+                                placeholder='Miles'
+                                name='miles'
+                                value={vehicle.miles}
+                                required
+                            />
+                            <Form.Label htmlFor='price'>Price</Form.Label>
+                            <Form.Control
+                                type='number'
+                                placeholder='Price'
+                                name='price'
+                                value={vehicle.price}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Please fill out all fields</Form.Control.Feedback>
+                            <Button className="mt-4" type='submit' variant='success'>Post Vehicle</Button>
+                        </>
+                      </Modal>
+                    </>
+
+                  ) : (
+                    ''
+                    // {Put code here if you want the buyers to have another option. Seller stuff goes next to Edit Vehicle}
+                  )}
+
+
                 </Card.Body>
               </Card>
               <Modal size='auto' show={clickVehicle} onHide={() => setClickVehicle(false)}>
-                
-                  <Modal.Header closeButton>
-                    <Modal.Title>Vehicle Information</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <p>Make: {vehicle.make}</p>
-                    <p>Model: {vehicle.model}</p>
-                    <p>Miles: {vehicle.miles}</p>
-                    <p>Year: {vehicle.year}</p>
-                    <p>Price: {vehicle.price}</p>
-                    <p>Color: {vehicle.color}</p>
-                  </Modal.Body>
+                <Modal.Header closeButton>
+                  <Modal.Title>Vehicle Information</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>Make: {vehicle.make}</p>
+                  <p>Model: {vehicle.model}</p>
+                  <p>Miles: {vehicle.miles}</p>
+                  <p>Year: {vehicle.year}</p>
+                  <p>Price: {vehicle.price}</p>
+                  <p>Color: {vehicle.color}</p>
+                </Modal.Body>
               </Modal>
             </div>
           ))}
