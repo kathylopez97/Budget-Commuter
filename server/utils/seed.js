@@ -20,7 +20,7 @@ const seed = async () => {
 
         // Create users
         const createdUsers = await User.create(users);
-
+        console.log(createdUsers);
         // Sample vehicle data
         const vehicles = [
             {
@@ -42,10 +42,22 @@ const seed = async () => {
                 price: 20000
             },
         ];
+        console.log(vehicles);
+        // for (let i = 0; i < vehicles.length; i++) {
+        //     const { _id } = await Vehicle.create(vehicles[i]);
+        //     // const user = await User.findOneAndUpdate(
+        //     //     { username: createdUsers.username[i] },
+        //     //     {
+        //     //         $addToSet: {
+        //     //             vehicles: _id,
+        //     //         },
+        //     //     }
+        //     // );
+        // }
 
         // Create vehicles
-        const createdVehicles = await Vehicle.insertMany(vehicles);
-
+        const createdVehicles = await Vehicle.create(vehicles);
+        console.log(createdVehicles);
         console.log('Sample data seeded successfully:', createdUsers, createdVehicles);
     } catch (error) {
         console.error('Error seeding sample data:', error);
