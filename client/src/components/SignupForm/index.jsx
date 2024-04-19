@@ -4,7 +4,7 @@ import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 
-import auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 const SignupForm = () => {
     const [addUser] = useMutation(ADD_USER);
@@ -38,14 +38,13 @@ const SignupForm = () => {
         }
 
         try {
-
+            
             //error starts here
             const { data } = await addUser({
                 variables: { ...formState },
             });
+            Auth.login(data)
             
-            console.log(data);
-            auth.login(data.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
