@@ -59,7 +59,7 @@ const VehiclePost = () => {
                     year: parseInt(userFormData.year),
                     miles: parseInt(userFormData.miles),
                     price: parseInt(userFormData.price),
-                } },
+                }},
             });
 
             console.log('Did you make it here?');
