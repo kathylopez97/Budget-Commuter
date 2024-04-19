@@ -12,7 +12,7 @@
     font-size: 48px;
     font-weight: 800;
     padding-bottom: 10px;
-    background: -webkit-linear-gradient(45deg, #09009f, #32d390 80%);
+    background: -webkit-linear-gradient(45deg, #09009f, #00e183 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -20,7 +20,7 @@
   h3 {
     background: radial-gradient(
       circle at -3.1% -4.3%,
-      rgb(57, 255, 186) 0%,
+      rgb(0, 217, 141) 0%,
       rgb(21, 38, 82) 90%
     );
     padding: 1rem 2rem;
