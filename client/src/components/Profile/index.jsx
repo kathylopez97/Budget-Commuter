@@ -14,7 +14,9 @@ function Profile() {
     <>
     <div>
       <h1>Welcome to your Profile</h1>
+
       <div>
+        
         <Button variant="secondary" size="lg" onClick={() => setPostVehicle(true)}>
           Post Vehicle
         </Button>
