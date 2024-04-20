@@ -4,11 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/Homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Outlet } from 'react-router-dom'
-import ResultsPage from './components/ResultsPage'
-import Profile from './components/Profile'
-import LastSearched from './components/HompageLastSearched'
-
-
+import ResultsPage from './components/ResultsPage';
+import Profile from './components/Profile';
+import LastSearched from './components/HompageLastSearched';
+import TermsandAgreements from './components/TermsandAgreements';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ContactUs from './components/ContactUs';
 import App from './App.jsx'
 // import FavoriteVehicles from './pages/FavoritedVehicles'
 // import GetSingleVehicle from './pages/GetSingleVehicle'
@@ -37,6 +38,18 @@ const router = createBrowserRouter([
             {
                 path: '/favorites',
                 element: <LastSearched/>
+            },
+            {
+                path: '/termsandagreement',
+                element: <TermsandAgreements />
+            },
+            {
+                path: '/privacypolicy',
+                element: <PrivacyPolicy/>
+            },
+            {
+                path: '/contactus',
+                element: <ContactUs/>
             }
         ]
     }
@@ -45,10 +58,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
 )
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  rootElement
-);
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   rootElement
+// );
