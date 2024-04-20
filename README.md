@@ -9,6 +9,7 @@
 [![Forks][forks-shield]][forks-url]
 
 <!-- PROJECT LOGO -->
+[![Header](car.png)]
 <br />
 <div align="center">
 <a href="https://github.com/kathylopez97/Convention-Planner">

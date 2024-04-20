@@ -82,6 +82,7 @@ const SignupForm = () => {
 
                 <Form.Group className='mb-3'>
                     <Form.Label htmlFor='email'>Email</Form.Label>
+                    <FaEnvelope className='icon' />
                     <Form.Control
                         type='email'
                         placeholder='Your email address'

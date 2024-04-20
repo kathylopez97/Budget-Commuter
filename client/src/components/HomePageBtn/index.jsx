@@ -49,10 +49,10 @@ function HomePageBtn({ user }) {
         The best place to find your dream car at an affordable price
       </p>
       <div style={styles.ButtonDivStyle}>
-        <Button href="/profile" variant="secondary" size="lg">
+        <Button href="/profile" variant="dark" size="lg">
           Profile
         </Button>
-        <Button variant="secondary" size="lg" onClick={() => setPostVehicle(true)}>
+        <Button variant="success" size="lg" onClick={() => setPostVehicle(true)}>
           Post Vehicle
         </Button>
         <Modal show={postVehicle} onHide={() => setPostVehicle(false)}>
