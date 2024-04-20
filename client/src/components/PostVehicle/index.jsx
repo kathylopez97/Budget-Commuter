@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, Modal } from 'react-bootstrap';
 import { POST_VEHICLE } from '../../utils/mutations';
+
 import Auth from '../../utils/auth';
 const VehiclePost = () => {
     const [postVehicle] = useMutation(POST_VEHICLE);

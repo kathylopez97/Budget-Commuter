@@ -4,7 +4,7 @@ const vehicleSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+    
     },
     make: {
         type: String,
