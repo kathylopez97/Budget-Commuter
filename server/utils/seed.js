@@ -13,7 +13,7 @@ const seed = async () => {
         await User.deleteMany();
         await Vehicle.deleteMany();
 
-        // Sample user data
+        //Sample user data
         const users = [
             {username: 'user1', email: 'user1@example.com', password: 'password1' },
             {username: 'user2', email: 'user2@example.com', password: 'password2' },
@@ -21,7 +21,7 @@ const seed = async () => {
 
         // Create users
         const createdUsers = await User.create(users);
-        console.log(createdUsers);
+        console.log("THIS IS THE CREATED USERS ===== ", createdUsers);
         // Sample vehicle data
         const vehicles = [
             {
@@ -58,7 +58,7 @@ const seed = async () => {
 
         // Create vehicles
         const createdVehicles = await Vehicle.create(vehicles);
-        console.log(createdVehicles);
+        console.log("THIS IS THE NEWLY CREATED VEHICLES ===== ",createdVehicles);
         console.log('Sample data seeded successfully:', createdUsers, createdVehicles);
     } catch (error) {
         console.error('Error seeding sample data:', error);

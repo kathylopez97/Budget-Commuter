@@ -2,6 +2,9 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Vehicle } = require('../models');
 const { signToken } = require('../utils/auth');
+const { ObjectId } = require('mongodb');
+
+
 // resolvers connectors between GraphQL and a data source
 const resolvers = {
     Query: {
@@ -77,10 +80,8 @@ const resolvers = {
             );
         },
         postVehicle: async (parent, {vehiclePostData}, context) => {
-            
             const { user, make, model, year, color, miles, price } = vehiclePostData;
 
-            console.log('object');
             if (!context.user) {
                 throw new AuthenticationError('You need to be logged in!');
             }
@@ -94,8 +95,28 @@ const resolvers = {
                 price
             });
             return vehicle;
-            //const vehicle = await Vehicle.create({ args, user: context.user._id});
+        },
+        updateVehicle: async (parent, { vehicleId, updatedData }, context) => {
+            try {
+                const {_id: _, ...dataWithoutId } = updatedData;
+                console.log("vehicleId", vehicleId);
+                
+                console.log('updatedData', dataWithoutId);
 
+                const updatedVehicle = await Vehicle.findOneAndUpdate(
+                    { _id: new ObjectId(vehicleId) }, 
+                    dataWithoutId, 
+                    { new: true }
+                );
+                if(!updatedVehicle) {
+                    throw new Error('Failed to find and update vehicle');
+                }
+                return updatedVehicle;
+            }
+            catch (error) {
+                console.log(error);
+                throw new Error('Failed to update vehicle');
+            }
         },
     },
 };
