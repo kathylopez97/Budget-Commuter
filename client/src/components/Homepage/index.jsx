@@ -1,4 +1,4 @@
-
+// Import useState , bootstrap and homepage button from react
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselImage from '../CarouselImage'
@@ -30,13 +30,14 @@ const styles = {
   },
 
 };
-
+// Create function of homepage
 function HomePage() {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+  // Return function of carousel images 
 
   return (
     <>
@@ -85,4 +86,5 @@ function HomePage() {
    
 }
 
+// Export homepage
 export default HomePage;

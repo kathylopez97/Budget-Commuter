@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-
+// It is used to create vehicles users and auth data type
 const typeDefs = gql`
     type Vehicle {
         _id: ID
@@ -60,4 +60,5 @@ const typeDefs = gql`
     }
 `;
 
+// Export typeDefs
 module.exports = typeDefs;

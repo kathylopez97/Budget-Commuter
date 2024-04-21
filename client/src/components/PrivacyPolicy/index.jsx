@@ -1,3 +1,4 @@
+// Import React and Form
 import React from "react";
 import Form from "react-bootstrap/Form";
 // private policy of our app
@@ -22,4 +23,5 @@ function PrivacyPolicy() {
   );
 }
 
+// Export Privacy Policy
 export default PrivacyPolicy;

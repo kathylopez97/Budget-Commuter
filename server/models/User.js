@@ -1,6 +1,7 @@
+// Import schema model and bcrpt
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+// userSchema to username, email and password
 const userSchema = new Schema({
     username: {
         type: String,
@@ -17,7 +18,7 @@ const userSchema = new Schema({
         required: true
     },
 });
-
+// save data from user
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;

@@ -1,3 +1,4 @@
+// Import react and form from bootstrap
 import React from "react";
 import Form from "react-bootstrap/Form";
 // terms and agreements  function using this app
