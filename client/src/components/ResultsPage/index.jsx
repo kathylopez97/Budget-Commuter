@@ -1,6 +1,6 @@
 // Import React and ResultsSelections page 
 import React from 'react';
-import ResultsSelection from '../ResultSelection';
+import ResultSelection from '../ResultSelection';
 
 const styles = {
    textStyle: {
@@ -22,7 +22,7 @@ const ResultsPage = () => {
     return (
         <div>
             <h1 style={styles.textStyle}>Search Results</h1>
-            <ResultsSelection />
+            <ResultSelection />
         </div>
     );
 };

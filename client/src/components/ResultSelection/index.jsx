@@ -1,5 +1,6 @@
 import { Modal, Button, Card, ListGroup, Alert, Form } from 'react-bootstrap';
 
+
 const styles = {
   searchBarStyle: {
     border: "1px solid black",
@@ -162,6 +163,7 @@ const ResultSelection = () => {
 
   return (
     <div>
+      
       {/* When the form is submitted, call the handleSearch function */}
       <form style={styles.containerStyle} onSubmit={handleSearch}>
         {/* Update the query state whenever the input field's value changes */}
@@ -179,14 +181,20 @@ const ResultSelection = () => {
               {/* Render each vehicle */}
 
               <Card style={styles.cardStyle}>
+                
                 <Card.Img variant="top" src="https://di-uploads-pod14.dealerinspire.com/oaklawntoyota/uploads/2020/01/2020-Toyota-Camry-Ruby-Flare-Pearl.png" />
                 <Card.Body>
                   <Card.Title style={styles.titleStyle}>{vehicle.year} {vehicle.make} {vehicle.model}</Card.Title>
+               
                 </Card.Body>
                 <ListGroup style={styles.listGroupStyle} className="list-group-flush">
+                 {/* Adding make model and price to cards*/}
+                   <ListGroup.Item>Make: {vehicle.make}</ListGroup.Item>
+                  <ListGroup.Item>Model: {vehicle.model}</ListGroup.Item>
+                  <ListGroup.Item>Price: {vehicle.miles}</ListGroup.Item>
                   <ListGroup.Item>Color: {vehicle.color}</ListGroup.Item>
-                  <ListGroup.Item>Miles: {vehicle.miles}</ListGroup.Item>
-                  <ListGroup.Item>Price: {vehicle.price}</ListGroup.Item>
+                  <ListGroup.Item>Miles: {vehicle.price}</ListGroup.Item>
+                  <ListGroup.Item>Price: {vehicle.color}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
                   <Card.Link style={styles.hoverStlye} onClick={() => setClickVehicle(true)}> Vehicle Posting</Card.Link>
@@ -194,12 +202,16 @@ const ResultSelection = () => {
                   {/* {Added this in, Only authorized people can see sell vehicle} */}
                   {Auth.getProfile(vehicle.user).data._id === vehicle.user ? (
                     <>
+                    
                       <Card.Link style={styles.hoverStlye} onClick={() => { currentEditedVehicle({ vehicle }); setEditVehicle(true); }}>Edit Vehicle</Card.Link>
                       <Modal show={editVehicle} onHide={() => setEditVehicle(false)}>
                         <>
+                        
                         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+                        <Modal.Header closeButton></Modal.Header>
                           <Form.Label htmlFor='make'>Make</Form.Label>
                           <Form.Control
+                          
                             type='text'
                             placeholder='Make'
                             name='make'
@@ -254,7 +266,7 @@ const ResultSelection = () => {
                             required
                           />
                           <Form.Control.Feedback type='invalid'>Please fill out all fields</Form.Control.Feedback>
-                          <Button className="mt-4" type='submit' variant='success'>Update vehicle</Button>
+                          <Button className="mt-4" type='submit' variant='warning'>Update vehicle</Button>
                           </Form>
                         </>
                       </Modal>
@@ -262,6 +274,7 @@ const ResultSelection = () => {
 
                   ) : (
                     ''
+                    //I had no luck importing It is tricky to add delete button while  try seperating update and delete vehicle ID please help!
                     // {Put code here if you want the buyers to have another option. Seller stuff goes next to Edit Vehicle}
                   )}
 
@@ -279,6 +292,7 @@ const ResultSelection = () => {
                   <p>Year: {vehicle.year}</p>
                   <p>Price: {vehicle.price}</p>
                   <p>Color: {vehicle.color}</p>
+                  
                 </Modal.Body>
               </Modal>
             </div>

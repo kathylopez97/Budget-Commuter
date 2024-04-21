@@ -4,17 +4,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./components/Homepage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Outlet } from "react-router-dom";
+import ContactSeller from "./components/ContactSeller";
 import ResultsPage from "./components/ResultsPage";
 import Profile from "./components/Profile";
 import PostVehicle from "./components/PostVehicle";
-import LastSearched from "./components/HomepageLastSearched";
+import LastSearched from "./components/LastSearched";
 import TermsandAgreements from "./components/TermsandAgreements";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import ContactUs from "./components/ContactUs";
 import App from "./App.jsx";
-// import FavoriteVehicles from './pages/FavoritedVehicles'
-// import GetSingleVehicle from './pages/GetSingleVehicle'
-// import Search from './pages/Search'
+
+// router to path and element components
 
 const router = createBrowserRouter([
   {
@@ -50,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/privacypolicy",
         element: <PrivacyPolicy />,
+      },
+      {
+        path: "/contactseller",
+        element: <ContactSeller />,
       },
       {
         path: "/contactus",

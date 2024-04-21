@@ -1,6 +1,8 @@
 import React from "react";
 import Auth from "../../utils/auth";
-import { Form } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 
     // When logged in you can contact seller //
@@ -11,35 +13,46 @@ function contactSeller(){
             window.location.assign("/login");
         }
     }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // returns an alert when submitted
+        console.log("CONTACT SELLER FORM SUBMITTED!")
+        alert("Message Send to Contact Seller!")
+    }
 
     return(
         <>
+  
+           <Form>
+           <h1>
+               Contact Seller
+           </h1>
+               <Form.Group className="mb-3" controlId="formBasicEmail">
+                   <Form.Label>Name: </Form.Label>
+                   <Form.Control type="name" placeholder="Enter Full Name" />
+               
+               </Form.Group>
 
-        <div>
-            <button onClick={checkValidation}>Contact Seller</button>
-        </div>
+               <Form.Group className="mb-3" controlId="formBasicPassword">
+                   <Form.Label>Message: </Form.Label>
+                   <Form.Control type="text" placeholder="Is this vehicle available?" />
+               </Form.Group>
+               <Button onClick={handleSubmit} variant="secondary" type="submit">
+                   Submit
+               </Button>
+           </Form>
+       </>
+   );
 
-        <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label htmlFor="email">Email address</Form.Label>
-                <Form.Control name="email" type="email" placeholder="email" required/>
-
-                <Form.Label htmlFor="make">Message</Form.Label>
-                <Form.Control name="make" as="textarea" rows={3} required/>
-            </Form.Group>
-        </Form>
-        </>
-    )
 }
-
 //This is the layout for model and contact Seller. Taken from homepage with Post vehicle
 //This is an example. Don't forget state
 
-// <Button variant="secondary" size="lg" onClick={() => setPostVehicle(true)}>
-// Post Vehicle
-// </Button>
-// <Modal show={postVehicle} onHide={() => setPostVehicle(false)}>
-// <PostVehicle />
-// </Modal>
+{/* <Button variant="secondary" size="lg" onClick={() => setPostVehicle(true)}>
+Post Vehicle
+</Button>
+<Modal show={postVehicle} onHide={() => setPostVehicle(false)}>
+<PostVehicle />
+</Modal> */}
 
 export default contactSeller;

@@ -25,7 +25,10 @@ const SearchBar = ({ onSearch }) => {
                 Search</Button>
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
+            
         </div>
+
+        
     );
 };
 // Export Searchbar

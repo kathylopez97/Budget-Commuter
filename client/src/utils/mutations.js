@@ -74,7 +74,7 @@ mutation UpdateVehicle($vehicleId: ID!, $updatedData: UpdateVehicle!) {
 }
 `
 
-export const REMOVE_VEHICLE = gql`
+export const DELETE_VEHICLE = gql`
   mutation removeVehicle($vehicleID: ID!) {
     removeVehicle(vehicleID: $vehicleID) {
       _id

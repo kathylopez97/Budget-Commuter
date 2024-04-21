@@ -7,7 +7,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import React, { useState } from "react";
-import "./App.css";
+import ContactSeller from "./components/ContactSeller";
 import Navbar from "./components/NavBar";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";

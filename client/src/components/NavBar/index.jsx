@@ -19,7 +19,7 @@ const AppNavbar = () => {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="/">
-            <img alt="" src={logo} width="100" height="100" className="Logo" />
+            <img alt="Logo header" src={logo} width="100" height="100" className="Logo" />
             {""}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,7 +40,7 @@ const AppNavbar = () => {
                 <>
                   <Nav.Link as={Link} to="/favorites">
                     <button type="button" className="btn btn-success" size="lg">
-                      See your vehicles
+                   Last Searched /Favorites
                     </button>
                   </Nav.Link>
 
@@ -64,7 +64,7 @@ const AppNavbar = () => {
                 <Tab.Container defaultActiveKey="login">
                   <Modal.Header closeButton>
                     <Modal.Title id="signup-modal">
-                      <Nav variant="pills">
+                      <Nav variant="sucess">
                         <Nav.Item>
                           <Nav.Link eventKey="login">Login</Nav.Link>
                         </Nav.Item>

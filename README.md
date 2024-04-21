@@ -168,7 +168,7 @@ Instructions on how to download our app.
 
 ## Usage
 <!-- Final Screenshot of our mockup website here-->
-
+![Mockup](usage.png)
 
 ## Links 
 <!-- Links to our Project for final submission  -->
