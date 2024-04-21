@@ -1,4 +1,3 @@
-// Import Bootstrap and React  styling 
 import { Modal, Button, Card, ListGroup, Alert, Form } from 'react-bootstrap';
 
 const styles = {
@@ -65,10 +64,10 @@ const styles = {
 };
 
 import { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_VEHICLES } from '../../utils/queries';
 import Auth from '../../utils/auth'
-import PostVehicle from '../PostVehicle/index'
+import { UPDATE_VEHICLE } from '../../utils/mutations';
 
 // Define the SearchIt component
 const ResultSelection = () => {
@@ -78,6 +77,21 @@ const ResultSelection = () => {
   const [error, setError] = useState('');
   const { loading, data } = useQuery(GET_VEHICLES, { variables: { query: query } });
   const [clickVehicle, setClickVehicle] = useState(false);
+  const [updateVehicle] = useMutation(UPDATE_VEHICLE);
+  const [validated, setValidated] = useState(false);
+
+  const [getUpdateVehicle, setUpdateVehicle] = useState({
+    _id: '',
+    user: '',
+    color: '',
+    make: '',
+    miles: 0,
+    model: '',
+    price: 0,
+    year: 0
+  });
+
+
 
   // Define the function to handle the search
   const handleSearch = async (e) => {
@@ -100,9 +114,49 @@ const ResultSelection = () => {
   const [editVehicle, setEditVehicle] = useState(false)
 
 
-  const getSeller = () => {
-    setEditVehicle(true);
+  const handleInputChange = (event, carId) => {
+    const { name, value } = event.target;
+    setUpdateVehicle(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+    console.log(getUpdateVehicle);
   }
+
+  const currentEditedVehicle = ({ vehicle }) => {
+    const{__typename, ...updatedData} = vehicle;
+    setUpdateVehicle(updatedData);
+    console.log(vehicle);
+  }
+
+  const handleFormSubmit = async (event) => {
+
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setValidated(true);
+      return;
+    }
+    console.log('what about here');
+    try {
+      await updateVehicle({
+        variables: {
+          vehicleId: getUpdateVehicle._id,
+          updatedData: {
+            ...getUpdateVehicle,
+            year: parseInt(getUpdateVehicle.year),
+            miles: parseInt(getUpdateVehicle.miles),
+            price: parseInt(getUpdateVehicle.price),
+          },
+        },
+      });
+      console.log('did you post');
+      setValidated(false);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
 
   // Render the component
 
@@ -140,60 +194,68 @@ const ResultSelection = () => {
                   {/* {Added this in, Only authorized people can see sell vehicle} */}
                   {Auth.getProfile(vehicle.user).data._id === vehicle.user ? (
                     <>
-                      <Card.Link style={styles.hoverStlye} onClick={() => setEditVehicle(true)}>Edit Vehicle</Card.Link>
+                      <Card.Link style={styles.hoverStlye} onClick={() => { currentEditedVehicle({ vehicle }); setEditVehicle(true); }}>Edit Vehicle</Card.Link>
                       <Modal show={editVehicle} onHide={() => setEditVehicle(false)}>
-                      <>
-                            <Form.Label htmlFor='make'>Make</Form.Label>
-                            <Form.Control
-                                type='text'
-                                placeholder='Make'
-                                name='make'
-                                value={vehicle.make}
-                                required
-                            />
-                            <Form.Label htmlFor='model'>Model</Form.Label>
-                            <Form.Control
-                                type='text'
-                                placeholder='Model'
-                                name='model'
-                                value={vehicle.model}
-                                required
-                            />
+                        <>
+                        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+                          <Form.Label htmlFor='make'>Make</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder='Make'
+                            name='make'
+                            defaultValue={vehicle.make}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
+                          <Form.Label htmlFor='model'>Model</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder='Model'
+                            name='model'
+                            defaultValue={vehicle.model}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
 
-                            <Form.Label htmlFor='year'>Year</Form.Label>
-                            <Form.Control
-                                type='number'
-                                placeholder='Year'
-                                name='year'
-                                value={vehicle.year}
-                                required
-                            />
-                            <Form.Label htmlFor='color'>Color</Form.Label>
-                            <Form.Control
-                                type='text'
-                                placeholder='Color'
-                                name='color'
-                                value={vehicle.color}
-                                required
-                            />
-                            <Form.Label htmlFor='miles'>Miles</Form.Label>
-                            <Form.Control
-                                type='number'
-                                placeholder='Miles'
-                                name='miles'
-                                value={vehicle.miles}
-                                required
-                            />
-                            <Form.Label htmlFor='price'>Price</Form.Label>
-                            <Form.Control
-                                type='number'
-                                placeholder='Price'
-                                name='price'
-                                value={vehicle.price}
-                                required
-                            />
-                            <Form.Control.Feedback type='invalid'>Please fill out all fields</Form.Control.Feedback>
-                            <Button className="mt-4" type='submit' variant='success'>Post Vehicle</Button>
+                          <Form.Label htmlFor='year'>Year</Form.Label>
+                          <Form.Control
+                            type='number'
+                            placeholder='Year'
+                            name='year'
+                            defaultValue={vehicle.year}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
+                          <Form.Label htmlFor='color'>Color</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder='Color'
+                            name='color'
+                            defaultValue={vehicle.color}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
+                          <Form.Label htmlFor='miles'>Miles</Form.Label>
+                          <Form.Control
+                            type='number'
+                            placeholder='Miles'
+                            name='miles'
+                            defaultValue={vehicle.miles}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
+                          <Form.Label htmlFor='price'>Price</Form.Label>
+                          <Form.Control
+                            type='number'
+                            placeholder='Price'
+                            name='price'
+                            defaultValue={vehicle.price}
+                            onChange={(event) => handleInputChange(event, vehicle)}
+                            required
+                          />
+                          <Form.Control.Feedback type='invalid'>Please fill out all fields</Form.Control.Feedback>
+                          <Button className="mt-4" type='submit' variant='success'>Update vehicle</Button>
+                          </Form>
                         </>
                       </Modal>
                     </>

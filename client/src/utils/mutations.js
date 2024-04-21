@@ -39,6 +39,7 @@ mutation postVehicle($vehicleData: PostVehicle!) {
   }
 }
 `;
+
 export const SAVE_VEHICLE = gql`
   mutation saveVehicle($vehicleData: FavoriteVehicleInput!) {
     saveVehicle(vehicleData: $vehicleData) {
@@ -57,6 +58,21 @@ export const SAVE_VEHICLE = gql`
     }
   }
 `;
+
+export const UPDATE_VEHICLE = gql`
+mutation UpdateVehicle($vehicleId: ID!, $updatedData: UpdateVehicle!) {
+  updateVehicle(vehicleId: $vehicleId, updatedData: $updatedData) {
+    _id
+    user
+    make
+    model
+    year
+    color
+    miles
+    price
+  }
+}
+`
 
 export const REMOVE_VEHICLE = gql`
   mutation removeVehicle($vehicleID: ID!) {

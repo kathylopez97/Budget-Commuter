@@ -50,6 +50,16 @@ const typeDefs = gql`
         miles: Int!
         price: Int!
     }
+    input UpdateVehicle {
+        _id: ID!
+        user: ID!
+        make: String!
+        model: String!
+        year: Int!
+        color: String!
+        miles: Int!
+        price: Int!
+      }
 
     type Mutation {
         loginUser(email: String!, password: String!): Auth
@@ -57,6 +67,7 @@ const typeDefs = gql`
         saveVehicle(vehicleData: FavoriteVehicle!): User
         removeVehicle(vehicleId: ID!): User
         postVehicle(vehiclePostData: PostVehicle!): Vehicle
+        updateVehicle(vehicleId: ID!, updatedData: UpdateVehicle!): Vehicle
     }
 `;
 
