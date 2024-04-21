@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import './image.css';
 
 function CarouselImage(_ref) {
   var image = _ref.image;
