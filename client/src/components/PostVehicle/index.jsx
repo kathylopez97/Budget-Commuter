@@ -1,9 +1,12 @@
+// Import useState , bootstrap and homepage button from react
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert,Modal } from 'react-bootstrap';
 import { POST_VEHICLE } from '../../utils/mutations';
+
 import Auth from '../../utils/auth';
 const VehiclePost = () => {
+    
     const [postVehicle] = useMutation(POST_VEHICLE);
     const [validated, setValidated] = useState(false);
     const [userFormData, setUserFormData] = useState({
@@ -76,7 +79,7 @@ const VehiclePost = () => {
                 <Form.Group className='mb-3 p-4'>
                     {Auth.loggedIn() ? (
                         <>
-                        <Modal.Header closeButton></Modal.Header>
+                        <Modal.Header closeButton> </Modal.Header>
                             <Form.Label htmlFor='make'>Make</Form.Label>
                             <Form.Control
                                 type='text'
@@ -133,7 +136,8 @@ const VehiclePost = () => {
                                 required
                             />
                             <Form.Control.Feedback type='invalid'>Please fill out all fields</Form.Control.Feedback>
-                            <Button className="mt-4" type='submit' variant='success'>Post Vehicle</Button>
+                            
+                            <Button className="mt-4" type='submit' variant='dark'>Post Vehicle</Button>
                         </>
                     ) : (
                         <Alert variant='warning'>You must be logged in to post a vehicle!</Alert>
@@ -144,4 +148,5 @@ const VehiclePost = () => {
     );
 };
 
+// Export Vehicle Post
 export default VehiclePost;

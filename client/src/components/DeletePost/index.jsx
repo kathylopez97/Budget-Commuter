@@ -1,11 +1,12 @@
+// Import React, Auth, Mutations and useSTATE & EFFECT
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button, Alert } from 'react-bootstrap';
 import {REMOVE_VEHICLE} from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-
-
+// This function creates data to remove vehicle created by user
+// showcase vehicle form to delete data 
 const DeletePost = () => {
     const [deleteVehicle] = useMutation(REMOVE_VEHICLE);
     const [validated, setValidated] = useState(false);
@@ -49,7 +50,7 @@ const DeletePost = () => {
             console.error('Error deleting vehicle:', error);
         }
     };
-
+// Returns functions of Vehicle form
     return (
         <>
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -123,5 +124,6 @@ const DeletePost = () => {
         </>
     );
 };
+// export Delete Post
 
 export default DeletePost;

@@ -1,5 +1,4 @@
-import Button from "react-bootstrap/esm/Button";
-
+// import css styling
 const styles = {
   headerStyle: {
     background: "green",
@@ -36,6 +35,7 @@ const styles = {
     font: "italic",
   },
 };
+// return header of Budget Commuters
 
 function Header() {
   return (
@@ -45,4 +45,5 @@ function Header() {
   );
 }
 
+// export Header
 export default Header;

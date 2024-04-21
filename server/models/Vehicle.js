@@ -1,5 +1,6 @@
+// Import schema and model from mongoose
 const { Schema, model } = require('mongoose');
-
+// Import vehicle data when creating a post
 const vehicleSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,

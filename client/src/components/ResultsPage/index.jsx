@@ -1,3 +1,4 @@
+// Import React and ResultsSelections page 
 import React from 'react';
 import ResultsSelection from '../ResultSelection';
 
@@ -16,7 +17,7 @@ const styles = {
   },
   };
 
-
+// This functions create header title to search vehicles
 const ResultsPage = () => {
     return (
         <div>
@@ -25,6 +26,6 @@ const ResultsPage = () => {
         </div>
     );
 };
-
+// Export Results Page
 export default ResultsPage;
 

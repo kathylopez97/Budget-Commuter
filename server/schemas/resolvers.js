@@ -1,7 +1,8 @@
+// This functions calls users and vehicle from apollo,models and auth
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Vehicle } = require('../models');
 const { signToken } = require('../utils/auth');
-
+// resolvers connectors between GraphQL and a data source
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
@@ -99,4 +100,5 @@ const resolvers = {
     },
 };
 
+// Export resolvers
 module.exports = resolvers;
