@@ -3,6 +3,8 @@ import Auth from "../../utils/auth";
 import { Form } from "react-bootstrap";
 
 
+    // When logged in you can contact seller //
+ 
 function contactSeller(){
     const checkValidation = () => {
         if (!Auth.loggedIn()) {
@@ -12,6 +14,7 @@ function contactSeller(){
 
     return(
         <>
+
         <div>
             <button onClick={checkValidation}>Contact Seller</button>
         </div>

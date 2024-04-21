@@ -1,3 +1,4 @@
+//Import useState from react and styling from Bootstrap
 import { useState } from 'react';
 import {
   Container,
@@ -6,8 +7,7 @@ import {
   Button,
   Row
 } from 'react-bootstrap';
-//NEEDED THIS PAGE TO MAKE THINGS WORk. From book project, It works though
-
+// Import Search Vehicle function
 const SearchVehicles = () => {
   const [searchInput, setSearchInput] = useState('');
 
@@ -19,7 +19,7 @@ const SearchVehicles = () => {
 
   };
 
-
+// return search Vehicles
   return (
     <>
       <div className="text-light bg-dark p-5">
@@ -54,5 +54,5 @@ const SearchVehicles = () => {
     </>
   );
 };
-
+// Export Search Vehicles
 export default SearchVehicles;

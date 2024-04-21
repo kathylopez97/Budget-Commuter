@@ -1,3 +1,4 @@
+// Import Bootstrap and React  styling 
 import { Modal, Button, Card, ListGroup, Alert, Form } from 'react-bootstrap';
 
 const styles = {

@@ -1,3 +1,4 @@
+// Import all necessary open-source js to build API and connections to run server
 const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
