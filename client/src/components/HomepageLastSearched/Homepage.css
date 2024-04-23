@@ -5,14 +5,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #effaff 0%, #d9e7ff 100%);
+    background: linear-gradient(90deg, #effaff 0%, #000000 100%);
   }
   
   h1 {
     font-size: 48px;
     font-weight: 800;
     padding-bottom: 10px;
-    background: -webkit-linear-gradient(45deg, #09009f, #00e183 80%);
+    background: -webkit-linear-gradient(45deg, #049507, #000000 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -1,4 +1,5 @@
-
+// Import useState, call Auth and Mutations from React
+// Import css styling and react icon with Bootstrap
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
@@ -6,7 +7,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import './Loginform.css'
-
+// This function creates a login form for user to login or create an account
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated, setValidated] = useState(false);
@@ -38,7 +39,8 @@ const LoginForm = () => {
       setUserFormData({ email: '', password: '' });
     }
   };
-
+// return login form 
+  
   return (
     <>
     
@@ -87,6 +89,7 @@ const LoginForm = () => {
     </>
   );
 };
+// Export Loginform
 
 export default LoginForm;
 

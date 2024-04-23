@@ -1,11 +1,14 @@
+// Import useState from react
 import { useState } from 'react';
+// BootStrap styling
 import { Form, Button, Alert } from 'react-bootstrap';
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
+// Import apollo and mutations from ADD USER
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
+// Import auth
 import Auth from '../../utils/auth';
-
+// This functon created Signup form
 const SignupForm = () => {
     const [addUser] = useMutation(ADD_USER);
 
@@ -56,7 +59,7 @@ const SignupForm = () => {
             password: '',
         });
     };
-
+// returns functions of import signup form for users to create an account
     return (
         <>
             {/* This is needed for the validation functionality above */}
@@ -82,6 +85,7 @@ const SignupForm = () => {
 
                 <Form.Group className='mb-3'>
                     <Form.Label htmlFor='email'>Email</Form.Label>
+                    <FaEnvelope className='icon' />
                     <Form.Control
                         type='email'
                         placeholder='Your email address'
@@ -116,5 +120,6 @@ const SignupForm = () => {
         </>
     );
 };
+// export Signupform
 
 export default SignupForm;

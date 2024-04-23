@@ -1,6 +1,7 @@
+// Import GraphQl
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
-
+// expirations time once logged in from auth token
 const secret = 'mysecretsshhhhh';
 const expiration = '2h';
 

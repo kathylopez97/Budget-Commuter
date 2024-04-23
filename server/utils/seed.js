@@ -1,12 +1,13 @@
+// Import mongoose and models
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Vehicle = require('../models/Vehicle');
-
+// mongo db connection 
 mongoose.connect('mongodb://localhost:27017/vehicleEcommerce-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-
+// This function calls for seeds
 const seed = async () => {
     try {
         await User.deleteMany();
@@ -65,5 +66,5 @@ const seed = async () => {
         mongoose.disconnect();
     }
 };
-
+// Seeds
 seed();
